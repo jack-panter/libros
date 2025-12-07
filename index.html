@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Descarga GRATIS...</title>
+
+  <!-- Google AdSense (tu cuenta real) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9410088002968295"
+     crossorigin="anonymous"></script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Segoe UI',sans-serif;
+      background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      color:#fff;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+    }
+    .container{
+      max-width:960px;
+      width:100%;
+      background:#fff;
+      color:#222;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .header{background:#d4af37;padding:40px 20px;text-align:center;color:#000}
+    .header h1{font-size:2.2rem;line-height:1.2;margin:0}
+    .header small{font-size:0.9rem;display:block;margin-top:8px;opacity:0.9}
+    .content{padding:30px 20px;text-align:center}
+    .portada{max-width:100%;height:auto;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,0.5);margin:30px auto}
+    h2{font-size:1.6rem;margin:25px 0;color:#111}
+    .btn{
+      background:#28a745;color:#fff;padding:16px 40px;font-size:1.4rem;
+      border:none;border-radius:50px;cursor:pointer;transition:.3s;
+      font-weight:bold;box-shadow:0 10px 30px rgba(40,167,69,0.4);
+      margin:15px 10px;min-width:280px;
+    }
+    .btn:hover{background:#218838;transform:translateY(-3px)}
+    .progreso{font-size:1.5rem;color:#d4af37;margin:40px 0;font-weight:bold}
+    .ad{background:#f9f9f9;margin:40px auto;padding:20px;border:6px dashed #ccc;
+        border-radius:16px;min-height:300px;display:none}
+
+    #descarga{display:none;margin-top:50px}
+    #descarga .btn{background:#d4af37;color:#000;font-size:1.8rem;padding:20px 60px}
+
+    @media (max-width:480px){
+      .header{padding:30px 15px}
+      .header h1{font-size:1.8rem}
+      .content{padding:25px 15px}
+      .btn{font-size:1.3rem;padding:14px 30px;min-width:90%}
+      .progreso{font-size:1.3rem}
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1 id="tituloLibro">Cargando...</h1>
+    <p id="autorLibro"></p>
+  </div>
+  <div class="content">
+    <img src="portada.jpg" alt="Portada" class="portada">
+    <h2 id="descripcionLibro"></h2>
+
+    <div class="progreso">Anuncios vistos: <span id="contador">0</span>/3</div>
+    <button class="btn" id="botonAnuncio">Ver Anuncio 1/3</button>
+
+    <!-- ANUNCIO 1 -->
+    <div class="ad" id="ad1">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9410088002968295"
+           data-ad-slot="1111111111"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- ANUNCIO 2 -->
+    <div class="ad" id="ad2">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9410088002968295"
+           data-ad-slot="2222222222"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- ANUNCIO 3 -->
+    <div class="ad" id="ad3">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9410088002968295"
+           data-ad-slot="3333333333"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div id="descarga">
+      <h2>¡Descarga desbloqueada!</h2>
+      <a id="enlaceDescarga" download>
+        <button class="btn">DESCARGAR PDF COMPLETO</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const d = {
+    "titulo": "8 Lecciones de Liderazgo Militar para Emprendedores",
+    "autor": "Robert T. Kiyosaki",
+    "año": "2016",
+    "descripcion": "Libro COMPLETO en PDF – GRATIS con solo 3 anuncios",
+    "archivo_pdf": "8 lecciones de liderazgo militar para emprendedores- Robert T. Kiyosaki.pdf"
+  };
+
+  document.getElementById('pageTitle').textContent = `${d.titulo} - ${d.autor} GRATIS`;
+  document.getElementById('tituloLibro').innerHTML = `${d.titulo}<br><small>${d.autor} • ${d.año}</small>`;
+  document.getElementById('autorLibro').textContent = `${d.autor} • ${d.año}`;
+  document.getElementById('descripcionLibro').textContent = d.descripcion;
+  document.getElementById('enlaceDescarga').href = d.archivo_pdf;
+
+  let adsVistos = 0;
+  document.getElementById('botonAnuncio').onclick = function() {
+    adsVistos++;
+    document.getElementById('contador').textContent = adsVistos;
+    if (adsVistos === 1) { document.getElementById('ad1').style.display = 'block'; this.textContent = 'Ver Anuncio 2/3'; }
+    if (adsVistos === 2) { document.getElementById('ad2').style.display = 'block'; this.textContent = 'Ver Anuncio 3/3'; }
+    if (adsVistos === 3) {
+      document.getElementById('ad3').style.display = 'block';
+      this.style.display = 'none';
+      document.querySelector('.progreso').innerHTML = '¡DESCARGA DESBLOQUEADA!';
+      document.getElementById('descarga').style.display = 'block';
+    }
+  };
+</script>
+</body>
+</html>
